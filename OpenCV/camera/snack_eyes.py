@@ -3,12 +3,12 @@ from skimage.metrics import structural_similarity
 
 from copy import copy
 
-x0 = 0
-x1 = 50
-y0 = 0
-y1 = 40
+x0 = 200
+x1 = 440
+y0 = 200
+y1 = 280
 
-threshold = 0.5
+threshold = 0.9
 
 capture = cv2.VideoCapture(0)
 capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
