@@ -20,7 +20,7 @@ def pinhole_vanishing_point(lx: float, ly: float, lz: float, f: float):
 
 # Ideal Pinhole Diameter
 def pinhole_ideal_diameter(f: float, wavelength: float) -> float:
-    return 2. * (f * wavelength)**0.5
+    return 2. * (f * wavelength) ** 0.5
 
 
 """
@@ -54,4 +54,16 @@ def lens_f_number(f: float, d: float) -> float:  # d: aperture
 
 # Lens Defocus
 def lens_blur_circle_diameter(o: float, o_prime: float, f: float, n: float) -> float:
-    return (f**2 / n) * abs((o - o_prime) / (o_prime * (o - f)))
+    return (f ** 2 / n) * abs((o - o_prime) / (o_prime * (o - f)))
+
+
+# Depth of Field
+def lens_dof(o: float, f: float, n: float, c: float) -> float:  # c: pixel size
+    numerator = 2. * o * (f ** 2) * c * n * (o - f)
+    denominator = (f ** 4) - ((c ** 2) * (n ** 2) * ((o - f) ** 2))
+    return numerator / denominator
+
+
+# Hyperfocal Distance (the closest distance o)
+def lens_hyperfocal_distance(f: float, n: float, c: float):
+    return ((f**2) / (n * c)) + f
