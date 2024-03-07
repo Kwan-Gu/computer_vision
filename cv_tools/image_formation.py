@@ -4,7 +4,7 @@ Pinhole and Perspective Projection
 
 
 # Perspective Imaging with Pinhole
-def pinhole_image_xy(xo: flaot, yo: float, zo: float, f: float):  # f : Effective Focal Length
+def pinhole_image_xy(xo: flaot, yo: float, zo: float, f: float):  # f: Effective Focal Length
     return f * xo / zo, f * yo / zo
 
 
@@ -65,5 +65,9 @@ def lens_dof(o: float, f: float, n: float, c: float) -> float:  # c: pixel size
 
 
 # Hyperfocal Distance (the closest distance o)
-def lens_hyperfocal_distance(f: float, n: float, c: float):
+def lens_hyperfocal_distance(f: float, n: float, c: float) -> float:
     return ((f**2) / (n * c)) + f
+
+
+if __name__ == "__main__":
+    print("It's test.")
