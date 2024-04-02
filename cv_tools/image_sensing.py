@@ -6,7 +6,14 @@ Noise
 
 
 # Photon Noise : Poisson Distribution
-def photon_noise_probability(k: int, lambda_: float) -> float:  # k: Signal, lambda_: Expectation
+def photon_noise_probability(k: int, lambda_: float) -> float:
+    """
+    Approximately Gaussian for lambda_ over 10
+
+    :param k: Signal
+    :param lambda_: Expectation
+    :return: Probability of Photon Noise (0 ~ 1)
+    """
     return (lambda_ ** k) * math.exp(-lambda_) / math.factorial(k)
 
 
@@ -23,8 +30,13 @@ def quantization_noise(delta: int) -> float:  # delta: Gap between Two Consecuti
 
 
 # Dynamic Range
-def dynamic_range_db(b_min: float, b_max: float) -> float:  # b_min: The Maximum Possible Photon Energy, b_max: The Minimum Detectable Photon Energy
-    return 20 * math.log(b_max / b_min)  # Unit: Decibels (dB)
+def dynamic_range_db(b_min: float, b_max: float) -> float:
+    """
+    :param b_min: The Maximum Possible Photon Energy
+    :param b_max: The Minimum Detectable Photon Energy
+    :return: Dynamic Range (dB)
+    """
+    return 20 * math.log10(b_max / b_min)  # Unit: Decibels (dB)
 
 
 """
